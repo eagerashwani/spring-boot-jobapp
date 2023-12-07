@@ -31,20 +31,20 @@ public class JobController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createJob(@PathVariable Job job){
+    public ResponseEntity<String> createJob(@RequestBody Job job){
         jobService.createJob(job);
         return new ResponseEntity<>("Job added successfully", HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<String> updateJob(@PathVariable Long id, @PathVariable Job job){
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateJob(@PathVariable Long id, @RequestBody Job job){
         boolean updated = jobService.updateJob(id, job);
         if(updated)
             return new ResponseEntity<>("Job updated Successfully", HttpStatus.OK);
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> removeJob(@PathVariable Long id){
         boolean removed = jobService.removeJobById(id);
         if(removed)
