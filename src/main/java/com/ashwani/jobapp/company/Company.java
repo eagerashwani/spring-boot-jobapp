@@ -59,4 +59,5 @@ public class Company {
     public void setLocation(String location) {
         this.location = location;
     }
+
 }
