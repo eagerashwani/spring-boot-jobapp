@@ -1,7 +1,17 @@
 package com.ashwani.jobapp.job;
 
-import org.springframework.stereotype.Service;
 
-@Service
+import java.util.List;
+
 public interface JobService {
+
+    List<Job> allJobs();
+
+    Job oneJob(Long id);
+
+    void createJob(Job job);
+
+    boolean removeJobById(Long id);
+
+    boolean updateJob(Long id, Job updatedJob);
 }
