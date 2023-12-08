@@ -33,7 +33,7 @@ public class JobController {
     @PostMapping
     public ResponseEntity<String> createJob(@RequestBody Job job){
         jobService.createJob(job);
-        return new ResponseEntity<>("Job added successfully", HttpStatus.OK);
+        return new ResponseEntity<>("Job added successfully", HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
